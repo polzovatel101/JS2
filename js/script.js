@@ -6,51 +6,28 @@
 var Tests = {
     init: function () {
         console.log('test');
-        this.createTreeText(this.test);
+        this.createTreeText(this.questions, this.answer);
     },
 
-    test: {
-        question1: 'Вопрос №1',
-        question2: 'Вопрос №2',
-        question3: 'Вопрос №3',
-        answer1: 'Вариант ответа №1',
-        answer2: 'Вариант ответа №2',
-        answer3: 'Вариант ответа №3'
-    },
+    questions: ['Вопрос №1', 'Вопрос №2', 'Вопрос №3'],
 
-    createTreeText: function (obj) {
-        var li = '';
+    answer: ['Вариант ответа №1', 'Вариант ответа №2', 'Вариант ответа №3' ],
+
+    createTreeText: function (question, answer) {
+        var li;
         var container = document.querySelector('body');
         container.innerHTML += '<h2>' + 'Тест по программированию' + '</h2>' + '\n' + '<form>';
-        //for(var i = 1; i <= 3; i++)
-        //{
-            container.innerHTML += '<ul>' + obj.question1 + '</ul>';
-            //for(var j = 1; j <= 3; j++)
-            //{
-                container.innerHTML += '<li>' + '<label>' + '<input>' + obj.answer1 + '</input>' + '</label>' + '</li>' + '</label>';
-                container.innerHTML += '<li>' + '<label>' + '<input>' + obj.answer2 + '</input>' + '</label>' + '</li>' + '</label>';
-                container.innerHTML += '<li>' + '<label>' + '<input>' + obj.answer3 + '</input>' + '</label>' + '</li>' + '</label>';
-            //}
-
-        container.innerHTML += '<ul>' + obj.question2 + '</ul>';
-        //for(var j = 1; j <= 3; j++)
-        //{
-        container.innerHTML += '<li>' + '<label>' + '<input>' + obj.answer1 + '</input>' + '</label>' + '</li>' + '</label>';
-        container.innerHTML += '<li>' + '<label>' + '<input>' + obj.answer2 + '</input>' + '</label>' + '</li>' + '</label>';
-        container.innerHTML += '<li>' + '<label>' + '<input>' + obj.answer3 + '</input>' + '</label>' + '</li>' + '</label>';
-        //}
-        container.innerHTML += '<ul>' + obj.question3 + '</ul>';
-        //for(var j = 1; j <= 3; j++)
-        //{
-        container.innerHTML += '<li>' + '<label>' + '<input>' + obj.answer1 + '</input>' + '</label>' + '</li>' + '</label>';
-        container.innerHTML += '<li>' + '<label>' + '<input>' + obj.answer2 + '</input>' + '</label>' + '</li>' + '</label>';
-        container.innerHTML += '<li>' + '<label>' + '<input>' + obj.answer3 + '</input>' + '</label>' + '</li>' + '</label>';
-        //}
-        //}
+        for(var i = 0; i < question.length; i++) {
+            container.innerHTML += '<ul>' + question[i] + '</ul>';
+            var ul = document.querySelectorAll('ul');
+            for (var j = 0; j < answer.length; j++) {
+                ul[i].innerHTML += '<li>' + '<label>' + '<input>' + answer[j] + '</input>' + '</label>' + '</li>';
+            }
+        }
         container.innerHTML += '<button>' + 'Проверить мои результаты' + '</button>' + '\n' + '</form>';
         var input = document.querySelectorAll('input');
         console.log(input);
-        for(var i = 0; i < input.length; i++){
+        for(i = 0; i < input.length; i++){
             input[i].type = 'checkbox';
         }
         var button = document.querySelector('button');
