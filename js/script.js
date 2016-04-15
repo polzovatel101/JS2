@@ -11,7 +11,11 @@ var Tests = {
 
     questions: ['Вопрос №1', 'Вопрос №2', 'Вопрос №3'],
 
-    answer: ['Вариант ответа №1', 'Вариант ответа №2', 'Вариант ответа №3' ],
+    answer: [
+        ['Вариант ответа №11', 'Вариант ответа №21', 'Вариант ответа №31'],
+        ['Вариант ответа №12', 'Вариант ответа №22', 'Вариант ответа №32'],
+        ['Вариант ответа №13', 'Вариант ответа №23', 'Вариант ответа №33']
+    ] ,
 
     createTreeText: function (question, answer) {
         var li;
@@ -21,7 +25,7 @@ var Tests = {
             container.innerHTML += '<ul>' + question[i] + '</ul>';
             var ul = document.querySelectorAll('ul');
             for (var j = 0; j < answer.length; j++) {
-                ul[i].innerHTML += '<li>' + '<label>' + '<input>' + answer[j] + '</input>' + '</label>' + '</li>';
+                ul[i].innerHTML += '<li>' + '<label>' + '<input>' + answer[i][j] + '</input>' + '</label>' + '</li>';
             }
         }
         container.innerHTML += '<button>' + 'Проверить мои результаты' + '</button>' + '\n' + '</form>';
@@ -40,3 +44,4 @@ var Tests = {
 };
 
 Tests.init();
+console.log(Tests.answer[0]);
