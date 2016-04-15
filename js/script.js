@@ -18,7 +18,6 @@ var Tests = {
     ] ,
 
     createTreeText: function (question, answer) {
-        var li;
         var container = document.querySelector('body');
         container.innerHTML += '<h2>' + 'Тест по программированию' + '</h2>' + '\n' + '<form>';
         for(var i = 0; i < question.length; i++) {
@@ -36,7 +35,7 @@ var Tests = {
         }
         var button = document.querySelector('button');
         button.className = 'btn btn-info';
-        li = document.querySelectorAll('li');
+        var li = document.querySelectorAll('li');
         for(i = 0; i <li.length; i++) {
             li[i].className = 'list';
         }
